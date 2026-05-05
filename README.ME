@@ -1,0 +1,166 @@
+# Casino Wallet Hub
+
+Casino Wallet Hub is a simple full-stack web project where users can register, log in, deposit money, play mini casino-style games, and withdraw their balance. The project uses MongoDB for storage and a Node.js backend for authentication and wallet management.
+
+## Features
+
+- User registration and login.
+- Shared wallet balance.
+- Deposit and withdraw money.
+- Three games:
+  - Roulette.
+  - Wheel of Fortune.
+  - Spin the Wheel.
+- MongoDB database integration.
+- Separate pages for login, wallet, and games.
+
+## Tech Stack
+
+- Frontend: HTML, CSS, JavaScript.
+- Backend: Node.js, Express.
+- Database: MongoDB.
+- Authentication: bcryptjs, JSON Web Token.
+- Optional backend: Python Flask.
+
+## Project Structure
+
+```text
+project-folder/
+├── backend-node/
+│   ├── server.js
+│   ├── package.json
+│   └── .env
+├── frontend/
+│   ├── index.html
+│   ├── wallet.html
+│   ├── payment.html
+│   ├── roulette.html
+│   ├── fortune.html
+│   └── spin.html
+└── README.md
+```
+
+## Setup Instructions
+
+### 1. Install MongoDB
+
+Make sure MongoDB is running on your computer.
+
+Local connection:
+
+```text
+mongodb://127.0.0.1:27017
+```
+
+You can also use MongoDB Compass to view your database.
+
+### 2. Set up the Node.js backend
+
+Go to the backend folder:
+
+```bash
+cd backend-node
+```
+
+Install the packages:
+
+```bash
+npm install
+```
+
+Create a `.env` file:
+
+```env
+PORT=5000
+MONGO_URI=mongodb://127.0.0.1:27017
+DB_NAME=casino_wallet_hub
+JWT_SECRET=your_secret_key
+```
+
+Start the backend:
+
+```bash
+npm run dev
+```
+
+### 3. Open the frontend
+
+Open `frontend/index.html` in VS Code using Live Server, or visit:
+
+```text
+http://localhost:5000
+```
+
+## How to Use
+
+1. Open the login/register page.
+2. Create a new account or log in.
+3. After login, you will go to the wallet page.
+4. Deposit money into your wallet.
+5. Open one of the games.
+6. Play and see your balance update.
+7. Withdraw your remaining money if you want.
+
+## API Endpoints
+
+### Authentication
+
+- `POST /api/register`
+- `POST /api/login`
+
+### Wallet
+
+- `GET /api/user/:username`
+- `POST /api/deposit`
+- `POST /api/withdraw`
+
+### Games
+
+- `POST /api/play`
+
+## MongoDB Collections
+
+The backend uses these collections:
+
+- `users`
+- `transactions`
+
+Example user document:
+
+```json
+{
+  "username": "dipan",
+  "passwordHash": "$2b$10$...",
+  "balance": 10,
+  "createdAt": "2026-04-08T00:00:00.000Z"
+}
+```
+
+Example transaction document:
+
+```json
+{
+  "username": "dipan",
+  "type": "deposit",
+  "amount": 5,
+  "detail": "Funds added",
+  "balanceAfter": 15,
+  "createdAt": "2026-04-08T00:00:00.000Z"
+}
+```
+
+## Notes
+
+- Passwords are stored as hashes, not plain text.
+- The wallet balance is shared across all games.
+- This project is made for learning and demonstration.
+- It is not intended for real-money gambling use.
+
+## Contributors
+
+- Dipan Sunar
+- Brijesh Bhattarai
+
+
+
+
